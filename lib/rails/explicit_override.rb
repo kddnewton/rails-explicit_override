@@ -59,7 +59,8 @@ module Rails
       # avoid both the overhead of tracking method definitions and the risk of
       # raising errors.
       module Noop
-        def explicit_override; end
+        def explicit_override
+        end
       end
 
       private_constant :Noop

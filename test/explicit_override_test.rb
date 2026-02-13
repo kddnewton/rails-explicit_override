@@ -8,7 +8,8 @@ class ExplicitOverrideTest < Test::Unit::TestCase
       explicit_overrides!(true)
 
       explicit_override
-      def save(*args); end
+      def save(*args)
+      end
     end
   end
 
@@ -18,7 +19,8 @@ class ExplicitOverrideTest < Test::Unit::TestCase
         Class.new(ActiveRecord::Base) do
           explicit_overrides!(true)
 
-          def save(*args); end
+          def save(*args)
+          end
         end
       end
 
@@ -31,7 +33,8 @@ class ExplicitOverrideTest < Test::Unit::TestCase
         explicit_overrides!(true)
 
         explicit_override
-        def foo(*args); end
+        def foo(*args)
+        end
       end
     end
   end
@@ -40,7 +43,8 @@ class ExplicitOverrideTest < Test::Unit::TestCase
     Class.new(ActiveRecord::Base) do
       explicit_overrides!(false)
 
-      def save(*args); end
+      def save(*args)
+      end
     end
   end
 
@@ -49,7 +53,8 @@ class ExplicitOverrideTest < Test::Unit::TestCase
       explicit_overrides!(true)
 
       explicit_override
-      def action_name; end
+      def action_name
+      end
     end
   end
 
@@ -58,7 +63,8 @@ class ExplicitOverrideTest < Test::Unit::TestCase
       Class.new(ActionController::Base) do
         explicit_overrides!(true)
 
-        def action_name; end
+        def action_name
+        end
       end
     end
   end
@@ -69,7 +75,8 @@ class ExplicitOverrideTest < Test::Unit::TestCase
         explicit_overrides!(true)
 
         explicit_override
-        def foo(*args); end
+        def foo(*args)
+        end
       end
     end
   end
@@ -78,7 +85,8 @@ class ExplicitOverrideTest < Test::Unit::TestCase
     Class.new(ActionController::Base) do
       explicit_overrides!(false)
 
-      def action_name; end
+      def action_name
+      end
     end
   end
 
