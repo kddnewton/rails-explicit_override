@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rails-explicit_override (0.1.0)
+    rails-explicit_override (0.1.1)
       actionpack
       activerecord
 
