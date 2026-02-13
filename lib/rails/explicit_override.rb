@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "set"
 require "active_record"
 require "action_controller"
 require "rails/explicit_override/version"
@@ -49,6 +50,7 @@ module Rails
           raise error.new(self, name)
         end
 
+        method_names << name
         super(name)
       end
     end
@@ -70,7 +72,7 @@ module Rails
       # `explicit_override`. If they are not marked or are marked incorrectly,
       # raise an error.
       def explicit_overrides!(development = false)
-        extend(development ? ExplicitOverride.new(instance_methods) : Noop)
+        extend(development ? ExplicitOverride.new(Set.new(instance_methods)) : Noop)
       end
 
       ActiveRecord::Base.extend(self)

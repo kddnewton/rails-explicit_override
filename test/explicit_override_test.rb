@@ -167,4 +167,24 @@ class ExplicitOverrideTest < Test::Unit::TestCase
       end
     end
   end
+
+  test "explicit_overrides! in base" do
+    parent =
+      Class.new do
+        extend Rails::ExplicitOverride::ClassMethods
+        explicit_overrides!(true)
+
+        def foo
+          "bar"
+        end
+      end
+
+    assert_raise(Rails::ExplicitOverride::MissingExplicitOverrideError) do
+      Class.new(parent) do
+        def foo
+          "baz"
+        end
+      end
+    end
+  end
 end
